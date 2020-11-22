@@ -1,0 +1,24 @@
+---
+- name: ルーター情報取得
+  telnet:
+    user: soge
+    login_prompt: "Password: "
+    prompts:
+      - "[$|>]"
+    command:
+      - console character en.ascii
+      - show status dhcpc
+
+- name: show config
+  telnet:
+    user: "{{ user }}"
+    password: "{{ pass }}"
+    login_prompt: "Password: "
+    prompts:
+      - "[>|#]|Password: "
+    command:
+      - show config
+  register: result
+
+- debug:
+    var: result.output

@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: no
+#  roles:
+#    - { role: "sudo"}
+  tasks:
+    # ipv6よりもipv4を優先する設定
+    # https://qastack.jp/ubuntu/32298/prefer-a-ipv4-dns-lookups-before-aaaaipv6-lookups
+    - name: put /etc/gai.conf file ipv6 than also ipv4 preferred preference
+      copy:
+        src: etc/gai.conf
+        dest: /etc/gai.conf
+        owner: root
+        group: root
+        mode: 0644
