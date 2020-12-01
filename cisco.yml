@@ -1,1 +1,8 @@
 ---
+- hosts:
+    - l3
+    - l2
+  gather_facts: no
+  sudo: false
+  roles:
+    - { role: "roles_cisco"}
