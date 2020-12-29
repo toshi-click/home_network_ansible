@@ -8,8 +8,8 @@ all:
     # Cisco WS-C3560CG-8PC-S
     l3:
       children:
-        hosts: 172.16.1.2
+        hosts: 172.28.1.2
     # Cisco WS-C2960CG-8TC-L
     l2:
       children:
-        hosts: 172.16.1.3
+        hosts: 172.28.1.3
