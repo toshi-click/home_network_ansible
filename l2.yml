@@ -1,2 +1,52 @@
 ---
 # ciscoL2機器の処理を行う
+- hosts:
+    - l2
+  gather_facts: no
+  sudo: false
+  tasks:
+    - name: Merge provided configuration with device configuration
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: GigabitEthernet0/1
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/2
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/3
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/4
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/5
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/6
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/7
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/8
+            mode: access
+            access:
+              vlan: 77
+          - name: GigabitEthernet0/9
+            mode: trunk
+            trunk:
+              allowed_vlans: 1,77,177
+              native_vlan: 1
+              encapsulation: dot1q
+        state: merged
+    - name: save running to startup when modified
+      cisco.ios.ios_config:
+        save_when: modified

@@ -1,1 +1,3 @@
 ---
+hostname: L3Switch
+domain_name: l3switch.test

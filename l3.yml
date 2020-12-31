@@ -1,2 +1,22 @@
 ---
 # ciscoL3機器の処理を行う
+- hosts:
+    - l3
+  gather_facts: no
+  sudo: false
+  remote_user: admin
+  tasks:
+    - name: Merge provided configuration with device configuration
+      cisco.ios.ios_l3_interfaces:
+        config:
+          - name: GigabitEthernet0/2
+            ipv4:
+              - address: dhcp
+          - name: GigabitEthernet0/3
+            ipv4:
+              - address: dhcp
+        state: merged
+
+    - name: save running to startup when modified
+      cisco.ios.ios_config:
+        save_when: modified

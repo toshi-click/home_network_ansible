@@ -1,1 +1,3 @@
 ---
+hostname: L2Switch
+domain_name: l2switch.test

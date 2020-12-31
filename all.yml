@@ -1,8 +1,8 @@
 ---
-#- import_playbook: ./common.yml
+- import_playbook: ./cisco.yml
 
 - import_playbook: ./l3.yml
 
-#- import_playbook: ./l2.yml
+- import_playbook: ./l2.yml
 
 #- import_playbook: ./router.yml
