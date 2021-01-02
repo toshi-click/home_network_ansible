@@ -1,5 +1,8 @@
 ---
-- import_playbook: ./cisco.yml
+# デバッグ用のtaskを積んだ共通プレイブック
+#- import_playbook: ./common.yml
+
+#- import_playbook: ./cisco.yml
 
 - import_playbook: ./l3.yml
 

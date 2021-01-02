@@ -1,7 +1,18 @@
 ---
 - hosts: all
   gather_facts: no
-  sudo: false
-#  roles:
-#    - { role: "sudo"}
-#  tasks:
+  tasks:
+    - name: "dump inventory_hostname vars"
+      debug: var=inventory_hostname
+
+#    - name: Show VLAN
+#      ios_command:
+#        commands: show vlan brief
+#      register: show_vlan
+#    - debug: var=show_vlan.stdout_lines
+
+#    - name: "Display all variables/facts known for a host"
+#      debug: var=hostvars[inventory_hostname]
+
+#    - name: "dump variables vars"
+#      debug: var=vars

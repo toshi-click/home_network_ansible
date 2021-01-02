@@ -3,19 +3,50 @@
 - hosts:
     - l3
   gather_facts: no
-  sudo: false
   remote_user: admin
   tasks:
+    - name: run multiple commands on remote nodes
+      cisco.ios.ios_command:
+        commands:
+          - show version
+          - show interfaces
+
+    - name: enable dhcp server
+      cisco.ios.ios_command:
+        commands:
+          - conf t
+          - service dhcp
+
+    - name: setting dhcp
+      cisco.ios.ios_command:
+        commands:
+          - conf t
+          - ip dhcp pool DHCP_POOL_VLAN_1
+          - network 172.28.1.0 255.255.255.0
+          - ip dhcp pool DHCP_POOL_VLAN_77
+          - network 172.28.77.0 255.255.255.0
+          - ip dhcp pool DHCP_POOL_VLAN_177
+          - network 172.28.177.0 255.255.255.0
+
+    - name: setting router rip
+      cisco.ios.ios_command:
+        commands:
+          - conf t
+          - router rip
+          - network 172.16.0.0
+          - network 172.28.0.0
+          - network 172.28.1.0
+          - network 172.28.77.0
+          - network 172.28.177.0
+
     - name: Merge provided configuration with device configuration
-      cisco.ios.ios_l3_interfaces:
+      cisco.ios.ios_l2_interfaces:
         config:
-          - name: GigabitEthernet0/2
-            ipv4:
-              - address: dhcp
-          - name: GigabitEthernet0/3
-            ipv4:
-              - address: dhcp
-        state: merged
+          - name: GigabitEthernet0/4
+            mode: access
+            access:
+              vlan: 77
+
 
     - name: save running to startup when modified
       cisco.ios.ios_config:

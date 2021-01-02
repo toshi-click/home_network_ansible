@@ -4,3 +4,5 @@
 #  name: ansible
 #  scm: git
 #  version: "master"
+collections:
+  - name: cisco.ios

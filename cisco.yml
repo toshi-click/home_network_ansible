@@ -4,84 +4,108 @@
     - l3
     - l2
   gather_facts: no
-  sudo: false
   tasks:
     - name: configure hostname and domain name
       cisco.ios.ios_system:
-        hostname: {{ hostname }}
-        domain_name: {{ domain_name }}
+        hostname: "{{ hostname }}"
+        domain_name: "{{ domain_name }}"
 
     - name: configure buffer size
       cisco.ios.ios_logging:
         dest: buffered
         size: 409600
 
-    - name: Merge provided configuration with device configuration
-      cisco.ios.ios_interfaces:
-        config:
-          - name: GigabitEthernet0/2
-            description: Configured and Merged by Ansible Network
-            enabled: true
-            mtu: 1500
-            duplex: auto
-            speed: 1000
-          - name: GigabitEthernet0/3
-            description: Configured and Merged by Ansible Network
-            mtu: 1500
-            enabled: true
-            duplex: auto
-            speed: 1000
-          - name: GigabitEthernet0/4
-            description: Configured and Merged by Ansible Network
-            mtu: 1500
-            enabled: true
-            duplex: auto
-            speed: 1000
-          - name: GigabitEthernet0/5
-            description: Configured and Merged by Ansible Network
-            enabled: true
-            mtu: 1500
-            duplex: auto
-            speed: 1000
-          - name: GigabitEthernet0/6
-            description: Configured and Merged by Ansible Network
-            mtu: 1500
-            enabled: true
-            duplex: auto
-            speed: 1000
-          - name: GigabitEthernet0/7
-            description: Configured and Merged by Ansible Network
-            mtu: 1500
-            enabled: true
-            duplex: auto
-            speed: 1000
-          - name: GigabitEthernet0/8
-            description: Configured and Merged by Ansible Network
-            mtu: 1500
-            enabled: true
-            duplex: auto
-            speed: 1000
-        state: merged
+#    - name: Merge provided configuration with device configuration
+#      cisco.ios.ios_interfaces:
+#        config:
+#          - name: GigabitEthernet0/2
+#            description: Configured and Merged by Ansible Network
+#            enabled: true
+#            mtu: 1500
+#            duplex: auto
+#            speed: 1000
+#          - name: GigabitEthernet0/3
+#            description: Configured and Merged by Ansible Network
+#            mtu: 1500
+#            enabled: true
+#            duplex: auto
+#            speed: 1000
+#          - name: GigabitEthernet0/4
+#            description: Configured and Merged by Ansible Network
+#            mtu: 1500
+#            enabled: true
+#            duplex: auto
+#            speed: 1000
+#          - name: GigabitEthernet0/5
+#            description: Configured and Merged by Ansible Network
+#            enabled: true
+#            mtu: 1500
+#            duplex: auto
+#            speed: 1000
+#          - name: GigabitEthernet0/6
+#            description: Configured and Merged by Ansible Network
+#            mtu: 1500
+#            enabled: true
+#            duplex: auto
+#            speed: 1000
+#          - name: GigabitEthernet0/7
+#            description: Configured and Merged by Ansible Network
+#            mtu: 1500
+#            enabled: true
+#            duplex: auto
+#            speed: 1000
+#          - name: GigabitEthernet0/8
+#            description: Configured and Merged by Ansible Network
+#            mtu: 1500
+#            enabled: true
+#            duplex: auto
+#            speed: 1000
+#        state: merged
 
     - name: Merge provided configuration with device configuration
       cisco.ios.ios_vlans:
         config:
-          - name: Vlan_1
+          - name: Vlan1
             vlan_id: 1
             state: active
             shutdown: disabled
             mtu: 1500
-          - name: Vlan_77
-              vlan_id: 77
-              state: active
-              shutdown: disabled
-              mtu: 1500
-          - name: Vlan_177
-              vlan_id: 177
-              state: active
-              shutdown: disabled
-              mtu: 1500
         state: merged
+    - name: setting vlan interface vlan1
+      ios_config:
+        lines:
+          - 'ip address 172.28.1.1 255.255.255.0'
+        parents: interface Vlan1
+
+    - name: Merge provided configuration with device configuration
+      cisco.ios.ios_vlans:
+        config:
+          - name: Vlan77
+            vlan_id: 77
+            state: active
+            shutdown: disabled
+            mtu: 1500
+        state: merged
+    - name: setting vlan interface vlan77
+      ios_config:
+        lines:
+          - 'ip address 172.28.77.1 255.255.255.0'
+        parents: interface Vlan77
+
+    - name: Merge provided configuration with device configuration
+      cisco.ios.ios_vlans:
+        config:
+          - name: Vlan177
+            vlan_id: 177
+            state: active
+            shutdown: disabled
+            mtu: 1500
+        state: merged
+    - name: setting vlan interface vlan177
+      ios_config:
+        lines:
+          - 'ip address 172.28.177.1 255.255.255.0'
+        parents: interface Vlan177
 
     - name: save running to startup when modified
       cisco.ios.ios_config:

@@ -3,7 +3,6 @@
 - hosts:
     - l2
   gather_facts: no
-  sudo: false
   tasks:
     - name: Merge provided configuration with device configuration
       cisco.ios.ios_l2_interfaces:
