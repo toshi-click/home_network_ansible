@@ -1,3 +1,45 @@
 ---
 hostname: L2Switch
 domain_name: l2switch.test
+interfaces:
+  - ios_if: "GigabitEthernet0/1"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+  - ios_if: "GigabitEthernet0/2"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+  - ios_if: "GigabitEthernet0/3"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+  - ios_if: "GigabitEthernet0/4"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+  - ios_if: "GigabitEthernet0/5"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+  - ios_if: "GigabitEthernet0/6"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+  - ios_if: "GigabitEthernet0/7"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+  - ios_if: "GigabitEthernet0/8"
+    desc: "access port"
+    enabled: true
+    mode: access
+    vlan_id: 1
+

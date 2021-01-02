@@ -17,6 +17,24 @@
           - conf t
           - service dhcp
 
+    - name: setting vlan interface vlan1
+      ios_config:
+        lines:
+          - 'ip address 172.28.1.1 255.255.255.0'
+        parents: interface Vlan1
+
+    - name: setting vlan interface vlan77
+      ios_config:
+        lines:
+          - 'ip address 172.28.77.1 255.255.255.0'
+        parents: interface Vlan77
+
+    - name: setting vlan interface vlan177
+      ios_config:
+        lines:
+          - 'ip address 172.28.177.1 255.255.255.0'
+        parents: interface Vlan177
+
     - name: setting dhcp
       cisco.ios.ios_command:
         commands:
@@ -39,14 +57,40 @@
           - network 172.28.77.0
           - network 172.28.177.0
 
-    - name: Merge provided configuration with device configuration
-      cisco.ios.ios_l2_interfaces:
+    - name: Configure interfaces - Status and Descriptions
+      ios_interfaces:
         config:
-          - name: GigabitEthernet0/4
-            mode: access
-            access:
-              vlan: 77
+          - name: "{{ item.ios_if }}"
+            description: "{{ item.desc }}"
+            enabled: "{{ item.enabled }}"
+      loop: "{{ interfaces }}"
 
+    - name: Configure interfaces - L3 IPv4
+      ios_l3_interfaces:
+        config:
+          - name: "{{ item.ios_if }}"
+            ipv4:
+              - address: "{{ item.ipv4 }}"
+      when: item.ipv4 is defined
+      loop: "{{ interfaces }}"
+
+    - name: Configure interfaces - L3 IPv6
+      ios_l3_interfaces:
+        config:
+          - name: "{{ item.ios_if }}"
+            ipv6:
+              - address: "{{ item.ipv6 }}"
+      when: item.ipv6 is defined
+      loop: "{{ interfaces }}"
+
+    - name: Configure interfaces - L3 switchport
+      cisco.ios.ios_command:
+        commands:
+          - conf t
+          - switchport mode access
+          - "switchport access vlan {{ vlan_id }}"
+      when: item.switchport is defined
+      loop: "{{ interfaces }}"
 
     - name: save running to startup when modified
       cisco.ios.ios_config:

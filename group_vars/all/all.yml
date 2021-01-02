@@ -1,3 +1,20 @@
 ---
 ansible_ssh_pass: "{{ crypt_ansible_ssh_pass }}"
 ansible_become_pass: "{{ crypt_ansible_become_pass }}"
+
+vlans:
+  - name: "Vlan1"
+    id: 1
+    state: active
+    shutdown: disabled
+    mtu: 1500
+  - name: "Vlan77"
+    id: 77
+    state: active
+    shutdown: disabled
+    mtu: 1500
+  - name: "Vlan177"
+    id: 177
+    state: active
+    shutdown: disabled
+    mtu: 1500
