@@ -17,11 +17,14 @@ variables:
   #  stage: deploy
   image: toshiclick/ci-ansible
   before_script:
+    - apt install python3-pip
+    - pip3 install paramiko
+#    - ansible-galaxy collection install cisco.ios
     - ansible-galaxy install -r requirements.yml -p roles --force
-#    - echo -e "$VAULT_PASS" > ~/.ssh/.ansible_vault_pass
-#    - chmod 644 ~/.ssh/.ansible_vault_pass
-#  after_script:
-#    - rm -f ~/.ssh/.ansible_vault_pass
+    - echo -e "$VAULT_PASS" > ~/.ssh/.ansible_vault_pass
+    - chmod 644 ~/.ssh/.ansible_vault_pass
+  after_script:
+    - rm -f ~/.ssh/.ansible_vault_pass
 
 cache:
   # ジョブ毎にキャッシュを共有する設定
@@ -30,7 +33,7 @@ cache:
 
 ansiblelint:
   stage: lint
-  image: toshiclick/ci-ansible
+  <<: *deploy_default
   script:
     - pip install ansible-lint
     - ansible-lint all.yml -c .ansible-lint
@@ -49,3 +52,18 @@ ansible_syntax:
       - master
   except:
     - schedules
+
+excute_ansible:
+  stage: deploy_other
+  <<: *deploy_default
+  script:
+    # 機器へプレイブックを実行
+    - ansible-playbook -D -l l3,l2 -i hosts/all.yml all.yml --vault-pass ~/.ssh/.ansible_vault_pass
+  only:
+    # 実行されるブランチを指定
+    refs:
+      - master
+      - triggers
+    variables:
+      # 環境変数RELEASE_FLAGがあるときだけ実行(スケジュールCI経由時だけ実行されるように)
+      - $RELEASE_FLAG
