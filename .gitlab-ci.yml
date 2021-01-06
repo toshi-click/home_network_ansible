@@ -54,7 +54,7 @@ ansible_syntax:
     - schedules
 
 excute_ansible:
-  stage: deploy_other
+  stage: deploy
   <<: *deploy_default
   script:
     # 機器へプレイブックを実行
