@@ -10,7 +10,7 @@ host_key_checking = False
 
 ```shell
 sudo apt install python3-pip
-pip install paramiko
+pip3 install paramiko
 ansible-galaxy collection install cisco.ios
 ansible-playbook -i hosts/all.yml -l l3 --ask-vault-pass all.yml
 ```
