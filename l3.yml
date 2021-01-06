@@ -103,11 +103,38 @@
       loop: "{{ interfaces }}"
 
     - name: Configure interfaces - L3 switchport
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: "{{ item.ios_if }}"
+            mode:  "{{ item.mode }}"
+            access:
+              vlan: "{{ item.vlan_id }}"
+        state: merged
+      when:
+        - item.mode is defined
+        - item.mode == "access"
+      loop: "{{ interfaces }}"
+
+    - name: Configure interfaces - L3 trunk
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: "{{ item.ios_if }}"
+            mode: "{{ item.mode }}"
+            trunk:
+              allowed_vlans: "{{ item.allowed_vlans }}"
+              native_vlan: "{{ item.native_vlan }}"
+              encapsulation: dot1q
+        state: merged
+      when:
+        - item.mode is defined
+        - item.mode == "trunk"
+      loop: "{{ interfaces }}"
+
+    - name: set DHCP hosts
       cisco.ios.ios_command:
         commands:
           - conf t
-          - switchport mode access
-          - "switchport access vlan {{ vlan_id }}"
-      when: item.switchport is defined
-      loop: "{{ interfaces }}"
-
+          - "ip dhcp pool {{ item.name }}"
+          - "host {{ item.host }} {{ item.subnet }}"
+          - "hardware-address {{ item.address }}"
+      loop: "{{ dhcps }}"

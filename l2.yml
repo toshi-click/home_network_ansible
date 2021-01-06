@@ -48,13 +48,17 @@
       when: item.mode == "access"
       loop: "{{ interfaces }}"
 
-    - name: Merge provided configuration with device configuration
+    - name: Configure interfaces - L3 trunk
       cisco.ios.ios_l2_interfaces:
         config:
-          - name: GigabitEthernet0/9
-            mode: trunk
+          - name: "{{ item.ios_if }}"
+            mode: "{{ item.mode }}"
             trunk:
-              allowed_vlans: 1,77,177
-              native_vlan: 1
+              allowed_vlans: "{{ item.allowed_vlans }}"
+              native_vlan: "{{ item.native_vlan }}"
               encapsulation: dot1q
         state: merged
+      when:
+        - item.mode is defined
+        - item.mode == "trunk"
+      loop: "{{ interfaces }}"

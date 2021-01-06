@@ -28,3 +28,57 @@ vlans:
     state: active
     shutdown: disabled
     mtu: 1500
+
+dhcps:
+  - name: "toshipc01"
+    host: 172.28.77.10
+    subnet: 255.255.255.0
+    address: 00d8.61a1.519b
+  - name: "lenovo-p14s"
+    host: 172.28.77.21
+    subnet: 255.255.255.0
+    address: b0a4.60c2.ce05
+  - name: "shigure.test"
+    host: 172.28.177.100
+    subnet: 255.255.255.0
+    address: 7085.c240.d20b
+  - name: "mayu.test"
+    host: 172.28.177.200
+    subnet: 255.255.255.0
+    address: 0025.22a0.b04c
+#  - name: "ranko.test"
+#    host: 172.28.177.64
+#    subnet: 255.255.255.0
+#    address:
+  - name: "dns.test"
+    host: 172.28.100.53
+    subnet: 255.255.255.0
+    address: 5254.006f.cf73
+#  - name: "monitoring.test"
+#    host: 172.28.100.111
+#    subnet: 255.255.255.0
+#    address:
+#  - name: "k8s-api.test"
+#    host: 172.28.100.131
+#    subnet: 255.255.255.0
+#    address:
+#  - name: "k8s-master1.test"
+#    host: 172.28.100.132
+#    subnet: 255.255.255.0
+#    address:
+#  - name: "k8s-master2.test"
+#    host: 172.28.100.133
+#    subnet: 255.255.255.0
+#    address:
+#  - name: "k8s-master3.test"
+#    host: 172.28.100.134
+#    subnet: 255.255.255.0
+#    address:
+#  - name: "k8s-worker1.test"
+#    host: 172.28.100.135
+#    subnet: 255.255.255.0
+#    address:
+#  - name: "k8s-worker2.test"
+#    host: 172.28.100.136
+#    subnet: 255.255.255.0
+#    address:

@@ -6,40 +6,48 @@ interfaces:
     desc: "access port"
     enabled: true
     mode: access
-    vlan_id: 1
+    vlan_id: 77
   - ios_if: "GigabitEthernet0/2"
     desc: "access port"
     enabled: true
     mode: access
-    vlan_id: 1
+    vlan_id: 77
   - ios_if: "GigabitEthernet0/3"
     desc: "access port"
     enabled: true
     mode: access
-    vlan_id: 1
+    vlan_id: 77
   - ios_if: "GigabitEthernet0/4"
     desc: "access port"
     enabled: true
     mode: access
-    vlan_id: 1
+    vlan_id: 77
   - ios_if: "GigabitEthernet0/5"
-    desc: "access port"
+    desc: "trunk port"
     enabled: true
-    mode: access
-    vlan_id: 1
+    mode: trunk
+    native_vlan: 99
+    allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/6"
-    desc: "access port"
+    desc: "trunk port"
     enabled: true
-    mode: access
-    vlan_id: 1
+    mode: trunk
+    native_vlan: 99
+    allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/7"
-    desc: "access port"
+    desc: "trunk port"
     enabled: true
-    mode: access
-    vlan_id: 1
+    mode: trunk
+    native_vlan: 99
+    allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/8"
     desc: "access port"
     enabled: true
     mode: access
-    vlan_id: 1
-
+    vlan_id: 99
+  - ios_if: "GigabitEthernet0/9"
+    desc: "To L3SW VLAN Bridge"
+    enabled: true
+    mode: trunk
+    native_vlan: 99
+    allowed_vlans: 1,99,77,100,177
