@@ -8,8 +8,18 @@ vlans:
     state: active
     shutdown: disabled
     mtu: 1500
+  - name: "Vlan99"
+    id: 99
+    state: active
+    shutdown: disabled
+    mtu: 1500
   - name: "Vlan77"
     id: 77
+    state: active
+    shutdown: disabled
+    mtu: 1500
+  - name: "Vlan100"
+    id: 100
     state: active
     shutdown: disabled
     mtu: 1500
