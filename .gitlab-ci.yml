@@ -17,8 +17,7 @@ variables:
   #  stage: deploy
   image: toshiclick/ci-ansible
   before_script:
-    - apt install -y python3-pip
-    - yes | pip3 install paramiko
+    - pip install paramiko
 #    - ansible-galaxy collection install cisco.ios
     - ansible-galaxy install -r requirements.yml -p roles --force
     - echo -e "$VAULT_PASS" > ~/.ssh/.ansible_vault_pass
