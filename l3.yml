@@ -92,6 +92,3 @@
       when: item.switchport is defined
       loop: "{{ interfaces }}"
 
-    - name: save running to startup when modified
-      cisco.ios.ios_config:
-        save_when: modified

@@ -55,6 +55,15 @@
         state: merged
       loop: "{{ vlans }}"
 
+- import_playbook: ./l3.yml
+
+- import_playbook: ./l2.yml
+
+- hosts:
+    - l3
+    - l2
+  gather_facts: no
+  tasks:
     - name: save running to startup when modified
       cisco.ios.ios_config:
         save_when: modified
