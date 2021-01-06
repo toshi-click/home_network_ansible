@@ -3,7 +3,7 @@
 ```shell
 ip lan2 secure filter in 4010 4020 4021 4022 4221 4222 4699
 ip lan2 secure filter out 4998 4999 dynamic 4080 4081 4082 4083 4084 4085 4098 4099
-ip filter 4010 reject 0.0.0.0/8,10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.168.0.0/16
+ip filter 4010 reject 0.0.0.0/8,10.0.0.0/8,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.168.0.0/16
 ip filter 4020 pass * * icmp * *
 ip filter 4021 pass * * established * *
 ip filter 4022 pass * * tcp * ident
