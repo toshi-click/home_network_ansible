@@ -44,6 +44,14 @@
         dest: buffered
         size: 409600
 
+#    - name: config time
+#      ios_config:
+#        lines:
+#          - ntp server ntp.nict.jp
+#          - clock timezone JST 9
+#          - service timestamps log datetime msec localtime show-timezone
+#          - service timestamps debug datetime msec localtime show-timezone
+
     - name: Configure interfaces - Status and Descriptions
       cisco.ios.ios_vlans:
         config:
