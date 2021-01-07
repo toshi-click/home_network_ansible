@@ -18,8 +18,8 @@ variables:
   image: toshiclick/ci-ansible
   before_script:
     - pip install paramiko
-#    - ansible-galaxy collection install cisco.ios
-    - ansible-galaxy install -r requirements.yml
+    - ansible-galaxy collection install cisco.ios
+#    - ansible-galaxy install -r requirements.yml
     - mkdir ~/.ssh && chmod 600 ~/.ssh
     - echo -e "$VAULT_PASS" > ~/.ssh/.ansible_vault_pass
     - chmod 644 ~/.ssh/.ansible_vault_pass
