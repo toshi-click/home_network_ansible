@@ -26,19 +26,19 @@ interfaces:
     desc: "trunk port"
     enabled: true
     mode: trunk
-    native_vlan: 99
+    native_vlan: 77
     allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/6"
     desc: "trunk port"
     enabled: true
     mode: trunk
-    native_vlan: 99
+    native_vlan: 177
     allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/7"
     desc: "trunk port"
     enabled: true
     mode: trunk
-    native_vlan: 99
+    native_vlan: 177
     allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/8"
     desc: "access port"

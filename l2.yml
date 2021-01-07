@@ -45,7 +45,9 @@
             access:
               vlan: "{{ item.vlan_id }}"
         state: merged
-      when: item.mode == "access"
+      when:
+        - item.mode is defined
+        - item.mode == "access"
       loop: "{{ interfaces }}"
 
     - name: Configure interfaces - L3 trunk
@@ -56,7 +58,6 @@
             trunk:
               allowed_vlans: "{{ item.allowed_vlans }}"
               native_vlan: "{{ item.native_vlan }}"
-              encapsulation: dot1q
         state: merged
       when:
         - item.mode is defined
