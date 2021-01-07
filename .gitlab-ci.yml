@@ -19,7 +19,7 @@ variables:
   before_script:
     - pip install paramiko
 #    - ansible-galaxy collection install cisco.ios
-    - ansible-galaxy install -r requirements.yml -p roles --force
+    - ansible-galaxy install -r requirements.yml
     - echo -e "$VAULT_PASS" > ~/.ssh/.ansible_vault_pass
     - chmod 644 ~/.ssh/.ansible_vault_pass
   after_script:
