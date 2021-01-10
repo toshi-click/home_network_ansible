@@ -142,5 +142,5 @@
           - "ip dhcp pool {{ item.name }}"
           - "host {{ item.host }} {{ item.subnet }}"
           - "hardware-address {{ item.address }}"
-          - "client-identifier {{ item.client-identifier }}"
+          - "client-identifier {{ item.identifier }}"
       loop: "{{ dhcps }}"
