@@ -17,7 +17,6 @@ variables:
   #  stage: deploy
   image: toshiclick/ci-ansible
   before_script:
-    - pip install paramiko
     - ansible-galaxy collection install cisco.ios
 #    - ansible-galaxy install -r requirements.yml
     - mkdir ~/.ssh && chmod 600 ~/.ssh
