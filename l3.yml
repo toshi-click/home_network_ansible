@@ -119,6 +119,17 @@
         - item.mode == "access"
       loop: "{{ interfaces }}"
 
+    - name: Configure interfaces - L3 switchport port fast
+      cisco.ios.ios_command:
+        commands:
+          - conf t
+          - "interface {{ item.ios_if }}"
+          - spanning-tree portfast
+      when:
+        - item.mode is defined
+        - item.mode == "access"
+      loop: "{{ interfaces }}"
+
     - name: Configure interfaces - L3 trunk
       cisco.ios.ios_l2_interfaces:
         config:
