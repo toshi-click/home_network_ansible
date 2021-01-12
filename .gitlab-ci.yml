@@ -15,7 +15,7 @@ variables:
 
 .deploy_default: &deploy_default
   #  stage: deploy
-  image: toshiclick/ci-ansible
+  image: toshiclick/home_network_ansible_image
   before_script:
     - ansible-galaxy collection install cisco.ios
 #    - ansible-galaxy install -r requirements.yml
