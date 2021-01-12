@@ -17,7 +17,7 @@ variables:
   #  stage: deploy
   image: toshiclick/home_network_ansible_image:latest
   before_script:
-    - ansible-galaxy collection install cisco.ios
+#    - ansible-galaxy collection install cisco.ios
 #    - ansible-galaxy install -r requirements.yml
     - mkdir ~/.ssh && chmod 600 ~/.ssh
     - echo -e "$VAULT_PASS" > ~/.ssh/.ansible_vault_pass
