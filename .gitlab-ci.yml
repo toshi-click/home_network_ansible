@@ -43,7 +43,7 @@ ansible_syntax:
   stage: lint
   <<: *deploy_default
   script:
-#    - ansible-playbook -i hosts/all.yml all.yml --syntax-check --vault-pass ~/.ssh/.ansible_vault_pass
+#    - ansible-playbook -i hosts/all.yml all.yml --syntax-check --vault-password-file ~/.ssh/.ansible_vault_pass
     - ansible-playbook -i hosts/all.yml all.yml --syntax-check
   only:
     # 実行されるブランチを指定(vault passはプロテクトブランチでしか取れないようにしているので。)
@@ -57,7 +57,7 @@ excute_ansible:
   <<: *deploy_default
   script:
     # 機器へプレイブックを実行
-    - ansible-playbook -D -l l3,l2 -i hosts/all.yml all.yml --vault-pass ~/.ssh/.ansible_vault_pass
+    - ansible-playbook -D -l l3,l2 -i hosts/all.yml all.yml --vault-password-file ~/.ssh/.ansible_vault_pass
   only:
     # 実行されるブランチを指定
     refs:
