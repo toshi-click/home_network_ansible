@@ -16,7 +16,7 @@ interfaces:
     desc: "access port"
     enabled: true
     mode: access
-    vlan_id: 77
+    vlan_id: 100
 #    ipv4: "10.100.101.253/24"
 #    ipv6: "2001:db8:101::f/64"
   - ios_if: "GigabitEthernet0/3"
