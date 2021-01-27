@@ -60,6 +60,11 @@ dhcps:
     subnet: 255.255.255.0
     address: 5254.006f.cf73
     identifier: 0152.5400.6fcf.73
+  - name: "qnap-ts231p.test"
+    host: 172.28.100.241
+    subnet: 255.255.255.0
+    address: 245E.BE1F.34C8
+    identifier: 0124.5ebe.1f34.c8
 #  - name: "monitoring.test"
 #    host: 172.28.100.111
 #    subnet: 255.255.255.0
