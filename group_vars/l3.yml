@@ -55,4 +55,4 @@ interfaces:
     desc: "access port"
     enabled: true
     mode: access
-    vlan_id: 99
+    vlan_id: 100
