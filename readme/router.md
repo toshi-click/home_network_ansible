@@ -54,6 +54,7 @@ dhcp service server
 dhcp scope 1 172.16.0.2-172.16.254.254/16
 dhcp scope bind 1 172.16.11.10 ethernet 98:41:5c:e3:1b:fc
 dhcp scope bind 1 172.16.100.12 ethernet 34:de:1a:59:1f:32
+dhcp scope bind 1 172.16.77.21 ethernet b0:a4:60:c2:ce:05
 dhcp scope bind 1 172.16.100.71 ethernet 00:25:22:a0:b0:4c
 dhcp scope bind 1 172.16.100.106 ethernet 8c:25:05:db:3a:20
 dhcp scope bind 1 172.16.100.107 ethernet 0c:9d:92:71:0c:bd
