@@ -41,10 +41,11 @@ interfaces:
     native_vlan: 177
     allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/8"
-    desc: "access port"
+    desc: "trunk port"
     enabled: true
-    mode: access
-    vlan_id: 99
+    mode: trunk
+    native_vlan: 99
+    allowed_vlans: 1,99,77,100,177
   - ios_if: "GigabitEthernet0/9"
     desc: "To L3SW VLAN Bridge"
     enabled: true
