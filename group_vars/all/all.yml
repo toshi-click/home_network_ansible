@@ -65,16 +65,16 @@ dhcps:
     subnet: 255.255.255.0
     address: 245E.BE1F.34C8
     identifier: 0124.5ebe.1f34.c8
-#  - name: "monitoring.test"
-#    host: 172.28.100.111
-#    subnet: 255.255.255.0
-#    address:
-#    identifier:
-#  - name: "k8s-worker1.test"
-#    host: 172.28.100.135
-#    subnet: 255.255.255.0
-#    address:
-#    identifier:
+  - name: "monitoring.test"
+    host: 172.28.100.111
+    subnet: 255.255.255.0
+    address: 5254.00c9.83f5
+    identifier: 0152.5400.c983.f5
+  - name: "k8s-worker1.test"
+    host: 172.28.100.135
+    subnet: 255.255.255.0
+    address: 5254.006f.cf73
+    identifier: 0152.5400.6fcf.73
   - name: "k8s-worker2.test"
     host: 172.28.100.136
     subnet: 255.255.255.0
