@@ -64,6 +64,7 @@ dhcp scope bind 1 172.16.100.205 ethernet 58:cb:52:7d:dc:a2
 dhcp scope bind 1 172.16.100.210 ethernet 00:0b:82:91:bf:db
 dhcp scope bind 1 172.16.100.211 ethernet f4:a9:97:48:c2:a2
 dhcp scope bind 1 172.16.100.241 ethernet 24:5e:be:1f:34:c8
+dhcp scope bind 1 172.16.100.251 ethernet F4:69:42:17:4C:1A
 ```
 
 ip lan2 intrusion detection in on

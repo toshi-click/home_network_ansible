@@ -69,27 +69,14 @@ dhcps:
 #    host: 172.28.100.111
 #    subnet: 255.255.255.0
 #    address:
-#  - name: "k8s-api.test"
-#    host: 172.28.100.131
-#    subnet: 255.255.255.0
-#    address:
-#  - name: "k8s-master1.test"
-#    host: 172.28.100.132
-#    subnet: 255.255.255.0
-#    address:
-#  - name: "k8s-master2.test"
-#    host: 172.28.100.133
-#    subnet: 255.255.255.0
-#    address:
-#  - name: "k8s-master3.test"
-#    host: 172.28.100.134
-#    subnet: 255.255.255.0
-#    address:
+#    identifier:
 #  - name: "k8s-worker1.test"
 #    host: 172.28.100.135
 #    subnet: 255.255.255.0
 #    address:
-#  - name: "k8s-worker2.test"
-#    host: 172.28.100.136
-#    subnet: 255.255.255.0
-#    address:
+#    identifier:
+  - name: "k8s-worker2.test"
+    host: 172.28.100.136
+    subnet: 255.255.255.0
+    address: 5254.0045.a50b
+    identifier: 0152.5400.45a5.0b
