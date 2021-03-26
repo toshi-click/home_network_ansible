@@ -73,8 +73,8 @@ dhcps:
   - name: "k8s-worker1.test"
     host: 172.28.100.135
     subnet: 255.255.255.0
-    address: 5254.006f.cf73
-    identifier: 0152.5400.6fcf.73
+    address: 5254.0031.9277
+    identifier: 0152.5400.3192.77
   - name: "k8s-worker2.test"
     host: 172.28.100.136
     subnet: 255.255.255.0
