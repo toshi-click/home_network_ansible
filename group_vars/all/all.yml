@@ -55,28 +55,28 @@ dhcps:
     subnet: 255.255.255.0
     address: 6805.CA2B.B2F4
     identifier: 0168.05CA.2BB2.F4
-  - name: "dns.test"
-    host: 172.28.100.53
-    subnet: 255.255.255.0
-    address: 5254.006f.cf73
-    identifier: 0152.5400.6fcf.73
+#  - name: "dns.test"
+#    host: 172.28.100.53
+#    subnet: 255.255.255.0
+#    address: 00ab.111f.23f3.b9a7
+#    identifier: 00ab.111f.23f3.b9a7
   - name: "qnap-ts231p.test"
     host: 172.28.100.241
     subnet: 255.255.255.0
     address: 245E.BE1F.34C8
     identifier: 0124.5ebe.1f34.c8
-  - name: "monitoring.test"
-    host: 172.28.100.111
-    subnet: 255.255.255.0
-    address: 5254.00c9.83f5
-    identifier: 0152.5400.c983.f5
-  - name: "k8s-worker1.test"
-    host: 172.28.100.135
-    subnet: 255.255.255.0
-    address: 5254.0031.9277
-    identifier: 0152.5400.3192.77
-  - name: "k8s-worker2.test"
-    host: 172.28.100.136
-    subnet: 255.255.255.0
-    address: 5254.0045.a50b
-    identifier: 0152.5400.45a5.0b
+#  - name: "monitoring.test"
+#    host: 172.28.100.111
+#    subnet: 255.255.255.0
+#    address: 00ab.11b5.a9f3.3b8a
+#    identifier: 00ab.11b5.a9f3.3b8a
+#  - name: "k8s-worker1.test"
+#    host: 172.28.100.135
+#    subnet: 255.255.255.0
+#    address: 5254.0031.9277
+#    identifier: 0152.5400.3192.77
+#  - name: "k8s-worker2.test"
+#    host: 172.28.100.136
+#    subnet: 255.255.255.0
+#    address: 5254.0045.a50b
+#    identifier: 0152.5400.45a5.0b
