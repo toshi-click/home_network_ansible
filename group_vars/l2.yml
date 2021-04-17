@@ -23,11 +23,10 @@ interfaces:
     mode: access
     vlan_id: 177
   - ios_if: "GigabitEthernet0/5"
-    desc: "trunk port"
+    desc: "access port"
     enabled: true
-    mode: trunk
-    native_vlan: 99
-    allowed_vlans: 1,99,77,100,177
+    mode: access
+    vlan_id: 177
   - ios_if: "GigabitEthernet0/6"
     desc: "trunk port"
     enabled: true
