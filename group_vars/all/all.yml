@@ -53,8 +53,8 @@ dhcps:
   - name: "ranko.test"
     host: 172.28.100.64
     subnet: 255.255.255.0
-    address: 6805.CA2B.B2F4
-    identifier: 0168.05CA.2BB2.F4
+    address: 0024.a584.a9fc
+    identifier: 0100.24a5.84a9.fc
 #  - name: "dns.test"
 #    host: 172.28.100.53
 #    subnet: 255.255.255.0
